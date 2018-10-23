@@ -1,0 +1,28 @@
+{
+    "levelUpData": {
+        "type": "object",
+        "properties": {
+            "hintString": "easy, medium or hard",
+            "currentQuestionSsml": "<speak>Dark with white markings, And smooth like a rock. Where learning occurs, I help convey thought. What am I?<speak>",
+            "currentLevel": "Hard",
+            "currentQuestionNumber": "4",
+            "numCorrect": "3"
+        },
+        "transformers": [
+            {
+                "inputPath": "currentQuestionSsml",
+                "outputName": "currentQuestionSpeech",
+                "transformer": "ssmlToSpeech"
+            },
+            {
+                "inputPath": "currentQuestionSsml",
+                "outputName": "currentQuestionText",
+                "transformer": "ssmlToText"
+            },
+            {
+                "inputPath": "hintString",
+                "transformer": "textToHint"
+            }
+        ]
+    }
+}
