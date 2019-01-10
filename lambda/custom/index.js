@@ -10,7 +10,15 @@ const LaunchRequestHandler = {
   },
   handle(handlerInput) {
     const speechText = "Welcome to Level Up Riddles! "
-        + "I will give you 10 riddles. Would you like to start with easy, medium, or hard riddles?";
+        + "I will give you 5 riddles. Would you like to start with easy, medium, or hard riddles?";
+    
+    if (!supportsAPL(handlerInput)) {
+      return handlerInput.responseBuilder
+        .speak(speechText)
+        .reprompt(speechText)
+        .withSimpleCard('Level Up Riddles', speechText)
+        .getResponse();
+    }
 
     return handlerInput.responseBuilder
       .addDirective({
@@ -88,6 +96,15 @@ const PlayGameIntentHandler = {
     sessionAttributes.speechText += " First riddle: " + sessionAttributes.currentRiddle.question;
 
     handlerInput.attributesManager.setSessionAttributes(sessionAttributes);
+
+    if (!supportsAPL(handlerInput)) {
+      return handlerInput.responseBuilder
+        .speak(sessionAttributes.speechText)
+        .reprompt(sessionAttributes.speechText)
+        .withSimpleCard('Level Up Riddles', sessionAttributes.speechText)
+        .getResponse();
+    }
+
     return handlerInput.responseBuilder
       .speak(sessionAttributes.speechText)
       .reprompt(sessionAttributes.speechText)
@@ -159,77 +176,83 @@ const AnswerRiddleIntentHandler = {
           + ". To play another level, say easy, medium, or hard. ";
       sessionAttributes.currentLevel = "";
       sessionAttributes.currentRiddle = {};
-      handlerInput.responseBuilder.addDirective({
-          type: 'Alexa.Presentation.APL.RenderDocument',
-          version: '1.0',
-          datasources: {            
-            "levelUpData": {
-                  "type": "object",
-                  "properties": {
-                      "hintString": "easy, medium or hard",
-                      "currentQuestionSsml": "<speak>"+sessionAttributes.currentRiddle.question+"</speak>",
-                      "currentLevel": sessionAttributes.currentLevel,
-                      "currentQuestionNumber": (sessionAttributes.currentIndex + 1),
-                      "numCorrect": sessionAttributes.correctCount
-                  },
-                  "transformers": [
-                      {
-                          "inputPath": "currentQuestionSsml",
-                          "outputName": "currentQuestionSpeech",
-                          "transformer": "ssmlToSpeech"
-                      },
-                      {
-                          "inputPath": "currentQuestionSsml",
-                          "outputName": "currentQuestionText",
-                          "transformer": "ssmlToText"
-                      },
-                      {
-                          "inputPath": "hintString",
-                          "transformer": "textToHint"
-                      }
-                  ]
-              }
-          },
-          document: require('./finishedquestions.json')
-      });
+
+      if (supportsAPL(handlerInput)) {
+        handlerInput.responseBuilder.addDirective({
+            type: 'Alexa.Presentation.APL.RenderDocument',
+            version: '1.0',
+            datasources: {            
+              "levelUpData": {
+                    "type": "object",
+                    "properties": {
+                        "hintString": "easy, medium or hard",
+                        "currentQuestionSsml": "<speak>"+sessionAttributes.currentRiddle.question+"</speak>",
+                        "currentLevel": sessionAttributes.currentLevel,
+                        "currentQuestionNumber": (sessionAttributes.currentIndex + 1),
+                        "numCorrect": sessionAttributes.correctCount
+                    },
+                    "transformers": [
+                        {
+                            "inputPath": "currentQuestionSsml",
+                            "outputName": "currentQuestionSpeech",
+                            "transformer": "ssmlToSpeech"
+                        },
+                        {
+                            "inputPath": "currentQuestionSsml",
+                            "outputName": "currentQuestionText",
+                            "transformer": "ssmlToText"
+                        },
+                        {
+                            "inputPath": "hintString",
+                            "transformer": "textToHint"
+                        }
+                    ]
+                }
+            },
+            document: require('./finishedquestions.json')
+        });
+      }
+
       sessionAttributes.currentIndex = 0;
     } else {
       sessionAttributes.currentRiddle = RIDDLES.LEVELS[sessionAttributes.currentLevel][sessionAttributes.currentIndex];
       sessionAttributes.speechText += "Next riddle: " + sessionAttributes.currentRiddle.question;
 
-      handlerInput.responseBuilder.addDirective({
-          type : 'Alexa.Presentation.APL.RenderDocument',
-          version: '1.0',
-          datasources: {
-              "levelUpData": {
-                  "type": "object",
-                  "properties": {
-                      "hintString": "easy, medium or hard",
-                      "currentQuestionSsml": "<speak>"+sessionAttributes.currentRiddle.question+"</speak>",
-                      "currentLevel": sessionAttributes.currentLevel,
-                      "currentQuestionNumber": (sessionAttributes.currentIndex + 1),
-                      "numCorrect": sessionAttributes.correctCount
-                  },
-                  "transformers": [
-                      {
-                          "inputPath": "currentQuestionSsml",
-                          "outputName": "currentQuestionSpeech",
-                          "transformer": "ssmlToSpeech"
-                      },
-                      {
-                          "inputPath": "currentQuestionSsml",
-                          "outputName": "currentQuestionText",
-                          "transformer": "ssmlToText"
-                      },
-                      {
-                          "inputPath": "hintString",
-                          "transformer": "textToHint"
-                      }
-                  ]
-              }
-          },
-          document: require('./question.json')
-      });
+      if (supportsAPL(handlerInput)) {
+        handlerInput.responseBuilder.addDirective({
+            type : 'Alexa.Presentation.APL.RenderDocument',
+            version: '1.0',
+            datasources: {
+                "levelUpData": {
+                    "type": "object",
+                    "properties": {
+                        "hintString": "easy, medium or hard",
+                        "currentQuestionSsml": "<speak>"+sessionAttributes.currentRiddle.question+"</speak>",
+                        "currentLevel": sessionAttributes.currentLevel,
+                        "currentQuestionNumber": (sessionAttributes.currentIndex + 1),
+                        "numCorrect": sessionAttributes.correctCount
+                    },
+                    "transformers": [
+                        {
+                            "inputPath": "currentQuestionSsml",
+                            "outputName": "currentQuestionSpeech",
+                            "transformer": "ssmlToSpeech"
+                        },
+                        {
+                            "inputPath": "currentQuestionSsml",
+                            "outputName": "currentQuestionText",
+                            "transformer": "ssmlToText"
+                        },
+                        {
+                            "inputPath": "hintString",
+                            "transformer": "textToHint"
+                        }
+                    ]
+                }
+            },
+            document: require('./question.json')
+        });
+      }
     }
 
     handlerInput.attributesManager.setSessionAttributes(sessionAttributes);
@@ -247,7 +270,7 @@ const HelpIntentHandler = {
       && handlerInput.requestEnvelope.request.intent.name === 'AMAZON.HelpIntent';
   },
   handle(handlerInput) {
-    const speechText = "I will give you 10 riddles. Would you like to start with easy, medium, or hard riddles?"
+    const speechText = "I will give you 5 riddles. Would you like to start with easy, medium, or hard riddles?"
 
     return handlerInput.responseBuilder
       .speak(speechText)
@@ -298,6 +321,12 @@ const ErrorHandler = {
       .getResponse();
   }
 };
+
+function supportsAPL(handlerInput) {
+  const supportedInterfaces = handlerInput.requestEnvelope.context.System.device.supportedInterfaces;
+  const aplInterface = supportedInterfaces['Alexa.Presentation.APL'];
+  return aplInterface != null && aplInterface != undefined;
+}
 
 const skillBuilder = Alexa.SkillBuilders.custom();
 
