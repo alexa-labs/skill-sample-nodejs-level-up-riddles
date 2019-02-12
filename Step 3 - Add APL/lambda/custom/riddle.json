@@ -1,0 +1,130 @@
+{
+    "type": "APL",
+    "version": "1.0",
+    "theme": "dark",
+    "import": [],
+    "resources": [
+        {
+            "description": "Colors dark to light",
+            "colors": {
+                "myBlack": "#343838",
+                "myPurple": "#9C0A54",
+                "myRed": "#FC2D47",
+                "myOrange": "#FD704B",
+                "myYellow": "#FDB04F",
+                "myWhite": "#FFFFFF"
+            }
+        }
+    ],
+    "styles": {},
+    "layouts": {},
+    "mainTemplate": {
+        "parameters": [
+            "payload"
+        ],
+        "items": [
+            {
+                "type": "Container",
+                "width": "100vw",
+                "height": "100vh",
+                "items": [
+                    {
+                        "when": "${payload.riddleGameData.properties.currentLevel == 'easy'}",
+                        "type": "Frame",
+                        "width": "100vw",
+                        "height": "100vh",
+                        "backgroundColor": "@myYellow",
+                        "position": "absolute"
+                    },
+                    {
+                        "when": "${payload.riddleGameData.properties.currentLevel == 'medium'}",
+                        "type": "Frame",
+                        "width": "100vw",
+                        "height": "100vh",
+                        "backgroundColor": "@myOrange",
+                        "position": "absolute"
+                    },
+                    {
+                        "when": "${payload.riddleGameData.properties.currentLevel == 'hard'}",
+                        "type": "Frame",
+                        "width": "100vw",
+                        "height": "100vh",
+                        "backgroundColor": "@myRed",
+                        "position": "absolute"
+                    },
+                    {
+                        "type": "Text",
+                        "text": "${payload.riddleGameData.properties.currentLevel}",
+                        "width": "100vw",
+                        "color": "@myWhite",
+                        "fontWeight": "900",
+                        "fontSize": "5vw",
+                        "paddingTop": "5vh",
+                        "textAlign": "center"
+                    },
+                    {
+                        "type": "Text",
+                        "text": "Riddle ${payload.riddleGameData.properties.currentQuestionNumber}:",
+                        "width": "100vw",
+                        "color": "@myWhite",
+                        "fontWeight": "300",
+                        "fontSize": "8vw",
+                        "textAlign": "center"
+                    },
+                    {
+                        "type": "Text",
+                        "id": "riddleComp",
+                        "text": "${payload.riddleGameData.properties.currentQuestionText}",
+                        "speech": "${payload.riddleGameData.properties.currentQuestionSpeech}",
+                        "width": "100vw",
+                        "color": "@myWhite",
+                        "fontWeight": "300",
+                        "fontSize": "5.5vw",
+                        "paddingTop": "5vh",
+                        "paddingLeft": "5vh",
+                        "paddingRight": "5vh",
+                        "textAlign": "center"
+                    },
+                    {
+                        "when": "${payload.riddleGameData.properties.currentLevel == 'easy'}",
+                        "type": "Frame",
+                        "width": "100vw",
+                        "height": "20vh",
+                        "backgroundColor": "@myOrange",
+                        "position": "absolute",
+                        "top": "80vh"
+                    },
+                    {
+                        "when": "${payload.riddleGameData.properties.currentLevel == 'medium'}",
+                        "type": "Frame",
+                        "width": "100vw",
+                        "height": "20vh",
+                        "backgroundColor": "@myRed",
+                        "position": "absolute",
+                        "top": "80vh"
+                    },
+                    {
+                        "when": "${payload.riddleGameData.properties.currentLevel == 'hard'}",
+                        "type": "Frame",
+                        "width": "100vw",
+                        "height": "20vh",
+                        "backgroundColor": "@myPurple",
+                        "position": "absolute",
+                        "top": "80vh"
+                    },
+                    {
+                        "type": "Text",
+                        "text": "Score: ${payload.riddleGameData.properties.numCorrect} correct",
+                        "width": "100vw",
+                        "color": "@myWhite",
+                        "fontWeight": "900",
+                        "fontSize": "5vw",
+                        "textAlign": "center",
+                        "position": "absolute",
+                        "top": "85vh"
+                    }
+                ]
+            }
+        ]
+    }
+}

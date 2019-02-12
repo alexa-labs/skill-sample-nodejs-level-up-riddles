@@ -1,0 +1,665 @@
+{
+    "interactionModel": {
+        "languageModel": {
+            "invocationName": "riddle game workshop presentation",
+            "intents": [
+                {
+                    "name": "AMAZON.CancelIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.HelpIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.StopIntent",
+                    "samples": []
+                },
+                {
+                    "name": "PlayGameIntent",
+                    "slots": [
+                        {
+                            "name": "level",
+                            "type": "levelType",
+                            "samples": [
+                                "{riddleNum} {level}",
+                                "{riddleNum} {level} riddles",
+                                "{level} riddles",
+                                "level {level}",
+                                "{level}"
+                            ]
+                        },
+                        {
+                            "name": "riddleNum",
+                            "type": "AMAZON.NUMBER"
+                        },
+                        {
+                            "name": "name",
+                            "type": "AMAZON.US_FIRST_NAME"
+                        },
+                        {
+                            "name": "color",
+                            "type": "AMAZON.Color"
+                        }
+                    ],
+                    "samples": [
+                        "{riddleNum} of the {level} riddles",
+                        "{name} {color} {riddleNum} level {level}",
+                        "{name} and {color} and i want {riddleNum} {level} riddles",
+                        "give me {riddleNum} {level}",
+                        "my favorite color is {color} and {riddleNum} {level}",
+                        "i like {color} and {level} riddles",
+                        "let's start",
+                        "i want to play",
+                        "i want {riddleNum} riddles",
+                        "give me {riddleNum} riddles",
+                        "my name is {name}",
+                        "my name is {name} and my favorite color is {color}",
+                        "i am {name}",
+                        "i am {name} and i like {color}",
+                        "my favorite color is {color}",
+                        "i like {color}",
+                        "i want {riddleNum} {level} riddles",
+                        "give me {riddleNum} {level} riddles",
+                        "my name is {name} and i want {level} riddles",
+                        "my name is {name} and i want {riddleNum} {level} riddles",
+                        "my name is {name} and my favorite color is {color} and i want {riddleNum} {level} riddles",
+                        "how about {level} riddles",
+                        "lets do some {level} riddles",
+                        "{level} ones",
+                        "lets do some {level} ones",
+                        "the {level} riddles",
+                        "the {level} ones",
+                        "{level} level riddles",
+                        "i want {level} riddles",
+                        "i want to play {level}",
+                        "{level} riddles",
+                        "{level}"
+                    ]
+                },
+                {
+                    "name": "AnswerRiddleIntent",
+                    "slots": [
+                        {
+                            "name": "answer",
+                            "type": "answerType"
+                        }
+                    ],
+                    "samples": [
+                        "i think the answer is {answer} ",
+                        "my answer is {answer}",
+                        "your {answer}",
+                        "my {answer}",
+                        "the {answer}",
+                        "an {answer}",
+                        "a {answer}",
+                        "the answer to the riddle is {answer}",
+                        "the answer is {answer}",
+                        "{answer} is the answer",
+                        "i think it is {answer}",
+                        "{answer}"
+                    ]
+                },
+                {
+                    "name": "AMAZON.MoreIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.NavigateHomeIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.NavigateSettingsIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.NextIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.PageUpIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.PageDownIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.PreviousIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.ScrollRightIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.ScrollDownIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.ScrollLeftIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.ScrollUpIntent",
+                    "samples": []
+                },
+                {
+                    "name": "HintIntent",
+                    "slots": [],
+                    "samples": [
+                        "i need another clue",
+                        "i need another hint",
+                        "i need a clue",
+                        "i need a hint",
+                        "give me a hint",
+                        "tell me a hint",
+                        "hint",
+                        "i want a clue",
+                        "clue",
+                        "give me a clue",
+                        "tell me a clue"
+                    ]
+                },
+                {
+                    "name": "BuyIntent",
+                    "slots": [],
+                    "samples": [
+                        "buy hints",
+                        "i want to buy hints",
+                        "buy hints for my game",
+                        "buy me hints",
+                        "purchase hints",
+                        "purchase clues",
+                        "buy clues",
+                        "buy clues for my game"
+                    ]
+                }
+            ],
+            "types": [
+                {
+                    "name": "levelType",
+                    "values": [
+                        {
+                            "name": {
+                                "value": "easy",
+                                "synonyms": [
+                                    "children",
+                                    "child",
+                                    "kids",
+                                    "kid",
+                                    "for kids",
+                                    "easy peasy",
+                                    "really easy"
+                                ]
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "hard",
+                                "synonyms": [
+                                    "advanced",
+                                    "hardest",
+                                    "harder",
+                                    "really hard",
+                                    "challenging",
+                                    "difficult"
+                                ]
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "medium",
+                                "synonyms": [
+                                    "med"
+                                ]
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "answerType",
+                    "values": [
+                        {
+                            "name": {
+                                "value": "heart"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "leg",
+                                "synonyms": [
+                                    "legs"
+                                ]
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "water"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "icicle"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "scissors",
+                                "synonyms": [
+                                    "shears"
+                                ]
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "pride"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "volcano"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "counterfeit",
+                                "synonyms": [
+                                    "phony money",
+                                    "counterfeit money",
+                                    "fake money"
+                                ]
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "tomorrow"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "key"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "blink"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "snail"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "ship",
+                                "synonyms": [
+                                    "yacht ",
+                                    "boat"
+                                ]
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "echo"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "candle"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "hour glass",
+                                "synonyms": [
+                                    "sand timer",
+                                    "hourglass",
+                                    "timer"
+                                ]
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "wheel"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "calendar"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "blue"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "corn"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "finger nails",
+                                "synonyms": [
+                                    "nails",
+                                    "fingernails"
+                                ]
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "name"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "piano",
+                                "synonyms": [
+                                    "keyboard"
+                                ]
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "sunshine",
+                                "synonyms": [
+                                    "sunlight",
+                                    "sun light",
+                                    "sun"
+                                ]
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "carpet"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "turtle"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "river"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "wind"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "hole",
+                                "synonyms": [
+                                    "holes",
+                                    "whole"
+                                ]
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "onion"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "newspaper"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "chalkboard",
+                                "synonyms": [
+                                    "blackboard",
+                                    "chalk board",
+                                    "board",
+                                    "white board",
+                                    "chalk wall",
+                                    "black board"
+                                ]
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "phone",
+                                "synonyms": [
+                                    "cell phone",
+                                    "telephone"
+                                ]
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "darkness",
+                                "synonyms": [
+                                    "dark"
+                                ]
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "match"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "stamp"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "rainbow"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "stars",
+                                "synonyms": [
+                                    "star"
+                                ]
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "yardstick",
+                                "synonyms": [
+                                    "yard stick",
+                                    "ruler",
+                                    "yard ruler"
+                                ]
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "salt"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "breath",
+                                "synonyms": [
+                                    "breathe"
+                                ]
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "tempurature"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "cold"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "alphabet"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "umbrella"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "pearl"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "joke"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "time"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "charcoal"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "foot steps",
+                                "synonyms": [
+                                    "feet marks",
+                                    "feet prints",
+                                    "foot marks",
+                                    "footsteps"
+                                ]
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "shadow"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "egg"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "iceberg"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "light switch",
+                                "synonyms": [
+                                    "switch"
+                                ]
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "sand"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "towel"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "glove"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "sponge"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "mirror"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "clock"
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        "dialog": {
+            "intents": [
+                {
+                    "name": "PlayGameIntent",
+                    "delegationStrategy": "ALWAYS",
+                    "confirmationRequired": false,
+                    "prompts": {},
+                    "slots": [
+                        {
+                            "name": "level",
+                            "type": "levelType",
+                            "confirmationRequired": false,
+                            "elicitationRequired": true,
+                            "prompts": {
+                                "elicitation": "Elicit.Slot.1456697663557.1392510278084"
+                            }
+                        },
+                        {
+                            "name": "riddleNum",
+                            "type": "AMAZON.NUMBER",
+                            "confirmationRequired": false,
+                            "elicitationRequired": false,
+                            "prompts": {}
+                        },
+                        {
+                            "name": "name",
+                            "type": "AMAZON.US_FIRST_NAME",
+                            "confirmationRequired": false,
+                            "elicitationRequired": false,
+                            "prompts": {}
+                        },
+                        {
+                            "name": "color",
+                            "type": "AMAZON.Color",
+                            "confirmationRequired": false,
+                            "elicitationRequired": false,
+                            "prompts": {}
+                        }
+                    ]
+                }
+            ],
+            "delegationStrategy": "ALWAYS"
+        },
+        "prompts": [
+            {
+                "id": "Elicit.Slot.1456697663557.1392510278084",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "Nice to meet you {name} . You want to play through {riddleNum} riddles. Would you like those to be easy, medium, or hard?"
+                    },
+                    {
+                        "type": "PlainText",
+                        "value": "Which category would you like your {riddleNum} riddles to be sourced from, easy, medium, or hard?"
+                    },
+                    {
+                        "type": "PlainText",
+                        "value": "Hi {name}, do you want easy, medium or hard riddles?"
+                    },
+                    {
+                        "type": "PlainText",
+                        "value": "Do you want easy, medium, or hard riddles?"
+                    }
+                ]
+            }
+        ]
+    }
+}

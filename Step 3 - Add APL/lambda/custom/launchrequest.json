@@ -1,0 +1,191 @@
+{
+    "type": "APL",
+    "version": "1.0",
+    "theme": "dark",
+    "import": [],
+    "resources": [
+        {
+            "description": "Colors dark to light",
+            "colors": {
+                "myBlack": "#343838",
+                "myPurple": "#9C0A54",
+                "myRed": "#FC2D47",
+                "myOrange": "#FD704B",
+                "myYellow": "#FDB04F",
+                "myWhite": "#FFFFFF"
+            }
+        }
+    ],
+    "styles": {},
+    "layouts": {
+        "HomePageButton": {
+            "parameters": [
+                "title",
+                "colorPrimary",
+                "colorSecondary"
+            ],
+            "items": [
+                {
+                    "type": "TouchWrapper",
+                    "width": "40vw",
+                    "height": "20vh",
+                    "item": {
+                        "type": "Container",
+                        "width": "40vw",
+                        "height": "20vh",
+                        "items": [
+                            {
+                                "type": "Frame",
+                                "width": "40vw",
+                                "height": "20vh",
+                                "backgroundColor": "${colorSecondary}",
+                                "position": "absolute"
+                            },
+                            {
+                                "type": "Frame",
+                                "width": "39vw",
+                                "height": "18vh",
+                                "backgroundColor": "${colorPrimary}",
+                                "position": "absolute"
+                            },
+                            {
+                                "type": "Text",
+                                "text": "${title}",
+                                "color": "@myWhite",
+                                "fontWeight": "900",
+                                "fontSize": "6vw",
+                                "width": "39vw",
+                                "height": "18vh",
+                                "textAlign": "center",
+                                "textAlignVertical": "center"
+                            }
+                        ]
+                    },
+                    "onPress": {
+                        "type": "SendEvent",
+                        "arguments": [
+                            "${title}"
+                        ]
+                    }
+                }
+            ]
+        }
+    },
+    "mainTemplate": {
+        "parameters": [
+            "payload"
+        ],
+        "items": [
+            {
+                "type": "Container",
+                "width": "100vw",
+                "height": "100vh",
+                "items": [
+                    {
+                        "type": "Frame",
+                        "width": "100vw",
+                        "height": "100vh",
+                        "backgroundColor": "@myBlack",
+                        "position": "absolute"
+                    },
+                    {
+                        "when": "${viewport.shape == 'round'}",
+                        "type": "Container",
+                        "width": "100vw",
+                        "height": "100vh",
+                        "items": [
+                            {
+                                "type": "Text",
+                                "text": "Riddle Game",
+                                "color": "@myWhite",
+                                "fontWeight": "900",    
+                                "width": "100vw",
+                                "fontSize": "10vh",
+                                "paddingTop": "12vh",
+                                "textAlign": "center"
+                            },
+                            {
+                                "type": "HomePageButton",
+                                "title": "Easy",
+                                "colorPrimary": "@myYellow",
+                                "colorSecondary": "@myOrange",
+                                "position": "absolute",
+                                "top": "28vh",
+                                "left": "30vw"
+                            },
+                            {
+                                "type": "HomePageButton",
+                                "title": "Medium",
+                                "colorPrimary": "@myOrange",
+                                "colorSecondary": "@myRed",
+                                "position": "absolute",
+                                "top": "51vh",
+                                "left": "30vw"
+                            },
+                            {
+                                "type": "HomePageButton",
+                                "title": "Hard",
+                                "colorPrimary": "@myRed",
+                                "colorSecondary": "@myPurple",
+                                "position": "absolute",
+                                "top": "74vh",
+                                "left": "30vw"
+                            }
+                        ]
+                    },
+                    {
+                        "when": "${viewport.shape != 'round'}",
+                        "type": "Container",
+                        "width": "100vw",
+                        "height": "100vh",
+                        "direction": "row",
+                        "items": [
+                            {
+                                "type": "Text",
+                                "text": "Riddle Game",
+                                "color": "@myWhite",
+                                "fontWeight": "900",    
+                                "width": "50vw",
+                                "height": "100vh",
+                                "fontSize": "20vh",
+                                "paddingLeft": "5vw",
+                                "textAlignVertical": "center"
+                            },
+                            {
+                                "type": "Container",    
+                                "width": "50vw",
+                                "height": "100vh",
+                                "items": [
+                                    {
+                                        "type": "HomePageButton",
+                                        "title": "Easy",
+                                        "colorPrimary": "@myYellow",
+                                        "colorSecondary": "@myOrange",
+                                        "position": "absolute",
+                                        "top": "10vh"
+                                    },
+                                    {
+                                        "type": "HomePageButton",
+                                        "title": "Medium",
+                                        "colorPrimary": "@myOrange",
+                                        "colorSecondary": "@myRed",
+                                        "position": "absolute",
+                                        "top": "40vh"
+                                    },
+                                    {
+                                        "type": "HomePageButton",
+                                        "title": "Hard",
+                                        "colorPrimary": "@myRed",
+                                        "colorSecondary": "@myPurple",
+                                        "position": "absolute",
+                                        "top": "70vh"
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+}
