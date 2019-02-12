@@ -15,7 +15,7 @@ This lab requires:
 
 - Access to a notebook computer with Wi-Fi, running Microsoft Windows, Mac OSX, or Linux (Ubuntu, SuSE, or RedHat).
 - An Internet browser suchas Chrome, Firefox, or IE9 (previous versions of Internet Explorer are not supported).
-- Having completed **[Step 0: Initialize Riddle Game](https://github.com/CamiWilliams/LevelUpRiddles-Workshop/tree/master/Step%200%20-%20Initialize%20Riddle%20Game)**
+- Having completed **[Step 0: Initialize Riddle Game](https://github.com/alexa-labs/skill-sample-nodejs-level-up-riddles/tree/master/Step%200%20-%20Initialize%20Riddle%20Game)**
 
 ## Goal: Handling more complex dialog in your skill.
 Real conversations are dynamic, moving between topics and ideas fluidly. To create conversational Alexa skills, design for flexibility and responsiveness. Skills should be able to handle variations of conversation, conditional collection of data, and switching context mid-conversation. Auto Delegation and Dialog management makes these natural interactions possible.
@@ -103,7 +103,7 @@ level {level}
 
 ### Task 1.3: Update your Skill Lambda
 
-At this point in your development lifecycle, I recommend updating your code locally as it could start to get large. The code editor in AWS Lambda may not show your code depending on its size. With each iteration of your skill code, you can [**Upload a .zip** into Lambda](https://github.com/CamiWilliams/LevelUpRiddles-Workshop/tree/master/Step%200%20-%20Initialize%20Riddle%20Game#uploadzip).
+At this point in your development lifecycle, I recommend updating your code locally as it could start to get large. The code editor in AWS Lambda may not show your code depending on its size. With each iteration of your skill code, you can [**Upload a .zip** into Lambda](https://github.com/alexa-labs/skill-sample-nodejs-level-up-riddles/tree/master/Step%200%20-%20Initialize%20Riddle%20Game#uploadzip).
 
 1. Open **index.js**
 2. In the `handle` of your `LaunchRequestHanler`, update the `speechText` to also request a name, favorite color, and number of riddles.

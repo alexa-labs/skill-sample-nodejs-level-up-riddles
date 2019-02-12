@@ -49,7 +49,7 @@ This task will walk you through creating a simple skill that quizzes the custome
 ### Task 0.4: Interaction Model
 
 1. In the navigation menu on the left, choose **JSON Editor**.
-2. **Copy** the JSON from [the en-US language model](https://github.com/CamiWilliams/LevelUpRiddles-Workshop/blob/master/Step%200%20-%20Initialize%20Riddle%20Game/models/en-US.json).
+2. **Copy** the JSON from [the en-US language model](https://github.com/alexa-labs/skill-sample-nodejs-level-up-riddles/blob/master/Step%200%20-%20Initialize%20Riddle%20Game/models/en-US.json).
 
 Each of these JSON fields are **Intents**. Intents represent what your skill can do, they are an action Alexa will take. To prompt Alexa for the action, a user would say an **Utterance**. In the case of the **CancelIntent** , the **Utterance** a user would say to perform the cancel action would be &quot;cancel riddles game workshop&quot;.
 

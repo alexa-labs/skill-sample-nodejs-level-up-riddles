@@ -18,8 +18,8 @@ This lab requires:
 
 - Access to a notebook computer with Wi-Fi, running Microsoft Windows, Mac OSX, or Linux (Ubuntu, SuSE, or RedHat).
 - An Internet browser suchas Chrome, Firefox, or IE9 (previous versions of Internet Explorer are not supported).
-- Having completed **[Step 0: Initialize Riddle Game](https://github.com/CamiWilliams/LevelUpRiddles-Workshop/tree/master/Step%200%20-%20Initialize%20Riddle%20Game)**
-- Having completed **[Step 1: Add Advanced Voice Design](https://github.com/CamiWilliams/LevelUpRiddles-Workshop/tree/master/Step%201%20-%20Add%20Advanced%20Voice%20Design)**
+- Having completed **[Step 0: Initialize Riddle Game](https://github.com/alexa-labs/skill-sample-nodejs-level-up-riddles/tree/master/Step%200%20-%20Initialize%20Riddle%20Game)**
+- Having completed **[Step 1: Add Advanced Voice Design](https://github.com/alexa-labs/skill-sample-nodejs-level-up-riddles/tree/master/Step%201%20-%20Add%20Advanced%20Voice%20Design)**
 
 ## Goal: Integrating Premium Features into your skill
 ISP supports one-time purchases for entitlements that unlock access to features or content in your skill, subscriptions that offer access to premium features or content for a period of time, and consumables which can be purchased, depleted and purchased again.
@@ -56,7 +56,7 @@ i need another clue
 This has updated our interaction model to be able to understand when the user requests for a hint. Now we need to be able to handle this in our service code. Once this is done, we will put this ability behind an ISP flow.
 
 9. Navigate to your service code.
-10. Update the `riddle_objects.js` file to add a `hints` array to each JSON object (you can copy it directly from [here](https://github.com/CamiWilliams/LevelUpRiddles-Workshop/blob/master/Step%202%20-%20Add%20ISP/lambda/custom/riddle_objects.js)).
+10. Update the `riddle_objects.js` file to add a `hints` array to each JSON object (you can copy it directly from [here](https://github.com/alexa-labs/skill-sample-nodejs-level-up-riddles/blob/master/Step%201%20-%20Add%20Advanced%20Voice%20Design/lambda/custom/riddle_objects.js)).
 11. In your `index.js`, add a handler for the HintIntent to read off all requested hints for the current question:
 
 ```

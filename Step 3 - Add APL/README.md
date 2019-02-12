@@ -21,9 +21,9 @@ This lab requires:
 
 - Access to a notebook computer with Wi-Fi, running Microsoft Windows, Mac OSX, or Linux (Ubuntu, SuSE, or RedHat).
 - An Internet browser suchas Chrome, Firefox, or IE9 (previous versions of Internet Explorer are not supported).
-- Having completed **[Step 0: Initialize Riddle Game](https://github.com/CamiWilliams/LevelUpRiddles-Workshop/tree/master/Step%200%20-%20Initialize%20Riddle%20Game)**
-- Having completed **[Step 1: Add Advanced Voice Design](https://github.com/CamiWilliams/LevelUpRiddles-Workshop/tree/master/Step%201%20-%20Add%20Advanced%20Voice%20Design)**
-- Having completed **[Step 2: Add In-Skill Purchasing](https://github.com/CamiWilliams/LevelUpRiddles-Workshop/tree/master/Step%202%20-%20Add%20ISP)**
+- Having completed **[Step 0: Initialize Riddle Game](https://github.com/alexa-labs/skill-sample-nodejs-level-up-riddles/tree/master/Step%200%20-%20Initialize%20Riddle%20Game)**
+- Having completed **[Step 1: Add Advanced Voice Design](https://github.com/alexa-labs/skill-sample-nodejs-level-up-riddles/tree/master/Step%201%20-%20Add%20Advanced%20Voice%20Design)**
+- Having completed **[Step 2: Add In-Skill Purchasing](https://github.com/alexa-labs/skill-sample-nodejs-level-up-riddles/tree/master/Step%202%20-%20Add%20ISP)**
 
 ## Goal: Create an enriching visual experience in your skill
 Voice is the most natural form of interaction. But in a voice-first world, visuals can enhance interactions with Alexa-enabled devices. By combining visual elements with voice experiences, developers can expand the possibilities of what their skills can do. Alexa-enabled devices have varying display sizes and shapes, purposes, and hardware limitations. For example, while using a skill on an Echo Spot or Fire TV may have similar spoken interactions for a customer, interactivity and information rendered on the screen may vary drastically depending on the device features.
@@ -38,9 +38,9 @@ When the customer invokes your skill and the `LaunchRequest`, Alexa prompts the 
 
 One of the benefits of using APL is that you can tailor your visual experience according to the device medium. So, for each APL document we create, we will have a _landscape_ and _round_ experience.
 
-![Launch Request round display](https://github.com/CamiWilliams/LevelUpRiddles-Workshop/blob/master/Step%203%20-%20Add%20APL/imgs_of_apl_screens/launchrequest_round.png?raw=true)
+![Launch Request round display](https://github.com/alexa-labs/skill-sample-nodejs-level-up-riddles/blob/master/Step%203%20-%20Add%20APL/imgs_of_apl_screens/launchrequest_round.png?raw=true)
 
-![Launch Request landscape display](https://github.com/CamiWilliams/LevelUpRiddles-Workshop/blob/master/Step%203%20-%20Add%20APL/imgs_of_apl_screens/launchrequest_landscape.png?raw=true)
+![Launch Request landscape display](https://github.com/alexa-labs/skill-sample-nodejs-level-up-riddles/blob/master/Step%203%20-%20Add%20APL/imgs_of_apl_screens/launchrequest_landscape.png?raw=true)
 
  
 1. In the **Developer Portal** , select the **Build** tab in the top menu.
@@ -665,11 +665,11 @@ We will now test our skill to assure that the APL documents appear in the skill 
 ### Task 3.4: Add displays for the game play contingent on the skill datasource
 Next we will add displays for `PlayGameIntent`, `AnswerRiddleIntent` and `HintIntent`. There will be two cases for `AnswerRiddleIntent`: if they are currently in the game versus if they finish a game.
 
-1. Copy the file [riddle.json](https://github.com/CamiWilliams/LevelUpRiddles-Workshop/blob/master/Step%203%20-%20Add%20APL/lambda/custom/riddle.json) into `lambda/custom`.
+1. Copy the file [riddle.json](https://github.com/alexa-labs/skill-sample-nodejs-level-up-riddles/blob/master/Step%203%20-%20Add%20APL/lambda/custom/riddle.json) into `lambda/custom`.
 
-![riddle.json round display](https://github.com/CamiWilliams/LevelUpRiddles-Workshop/blob/master/Step%203%20-%20Add%20APL/imgs_of_apl_screens/riddle_round.png?raw=true)
+![riddle.json round display](https://github.com/alexa-labs/skill-sample-nodejs-level-up-riddles/blob/master/Step%203%20-%20Add%20APL/imgs_of_apl_screens/riddle_round.png?raw=true)
 
-![riddle.json landscape display](https://github.com/CamiWilliams/LevelUpRiddles-Workshop/blob/master/Step%203%20-%20Add%20APL/imgs_of_apl_screens/riddle_landscape.png?raw=true)
+![riddle.json landscape display](https://github.com/alexa-labs/skill-sample-nodejs-level-up-riddles/blob/master/Step%203%20-%20Add%20APL/imgs_of_apl_screens/riddle_landscape.png?raw=true)
 
 2. Find the `PlayGameIntent`
 3. **Add** an if statement with the **supportsAPL** function. In the if, add an APL directive adding the `riddle.json` document.
@@ -692,11 +692,11 @@ if (sessionAttributes.currentIndex == sessionAttributes.totalRids) {
 4. Find the `AnswerRiddleIntent`
 5. Look for the condition that determines if the game is over or should continue with the next riddle.
 6. In the else of that statement, **add** an if statement with the **supportsAPL** function. In the if, add an APL directive adding the `riddle.json` document.
-7. Copy the file [finishedgame.json](https://github.com/CamiWilliams/LevelUpRiddles-Workshop/blob/master/Step%203%20-%20Add%20APL/lambda/custom/finishedgame.json) into `lambda/custom`.
+7. Copy the file [finishedgame.json](https://github.com/alexa-labs/skill-sample-nodejs-level-up-riddles/blob/master/Step%203%20-%20Add%20APL/lambda/custom/finishedgame.json) into `lambda/custom`.
 
-![finishedgame.json round display](https://github.com/CamiWilliams/LevelUpRiddles-Workshop/blob/master/Step%203%20-%20Add%20APL/imgs_of_apl_screens/finished_round.png?raw=true)
+![finishedgame.json round display](https://github.com/alexa-labs/skill-sample-nodejs-level-up-riddles/blob/master/Step%203%20-%20Add%20APL/imgs_of_apl_screens/finished_round.png?raw=true)
 
-![finishedgame.json landscape display](https://github.com/CamiWilliams/LevelUpRiddles-Workshop/blob/master/Step%203%20-%20Add%20APL/imgs_of_apl_screens/finished_landscape.png?raw=true)
+![finishedgame.json landscape display](https://github.com/alexa-labs/skill-sample-nodejs-level-up-riddles/blob/master/Step%203%20-%20Add%20APL/imgs_of_apl_screens/finished_landscape.png?raw=true)
 
 8. In the `AnswerRiddleIntent`, in the condition that determines if the game is over or should continue with the next riddle, **add** an if statement with the **supportsAPL** function. In the if, add an APL directive adding the `finishedgame.json` document.
 
@@ -714,11 +714,11 @@ if (sessionAttributes.currentIndex == sessionAttributes.totalRids) {
     ...
 }
 ```
-9. Copy the file [hint.json](https://github.com/CamiWilliams/LevelUpRiddles-Workshop/blob/master/Step%203%20-%20Add%20APL/lambda/custom/hint.json) into `lambda/custom`.
+9. Copy the file [hint.json](https://github.com/alexa-labs/skill-sample-nodejs-level-up-riddles/blob/master/Step%203%20-%20Add%20APL/lambda/custom/hint.json) into `lambda/custom`.
 
-![finishedgame.json round display](https://github.com/CamiWilliams/LevelUpRiddles-Workshop/blob/master/Step%203%20-%20Add%20APL/imgs_of_apl_screens/hint_round.png?raw=true)
+![hint.json round display](https://github.com/alexa-labs/skill-sample-nodejs-level-up-riddles/blob/master/Step%203%20-%20Add%20APL/imgs_of_apl_screens/hint_round.png?raw=true)
 
-![finishedgame.json landscape display](https://github.com/CamiWilliams/LevelUpRiddles-Workshop/blob/master/Step%203%20-%20Add%20APL/imgs_of_apl_screens/hint_landscape.png?raw=true)
+![hint.json landscape display](https://github.com/alexa-labs/skill-sample-nodejs-level-up-riddles/blob/master/Step%203%20-%20Add%20APL/imgs_of_apl_screens/hint_landscape.png?raw=true)
 
 10. In the `HintIntent`, when the customer has purchased hints, **add** an if statement with the **supportsAPL** function. In the if, add an APL directive adding the `hint.json` document.
 
