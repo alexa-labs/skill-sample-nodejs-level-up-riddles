@@ -103,10 +103,14 @@ The Lambda function for your skill has now been created. Now you need to attach 
 30. Code Entry Type: **Upload a .zip file**
 31. Ensure **Node.js 8.10** is selected for **Runtime**
 32. Handler: **index.handler**.
-33. Function Package: **Upload** a .zip of the contents in the lambda/custom folder of this repo.
+33. Function Package: **Upload** a .zip of the contents in the lambda/custom folder of this section of the repo.
+  - Clone this repo locally
+  - Navigate to 0 - Initialize Riddle Game/lambda/custom
+  - Zip the contents of this folder
+  - Upload the .zip
 34. Click the **Save** button in the top of the page. This will upload your function code into the Lambda container.
 
-After the Save is complete, you should see your code editor inline (Note, if your function code becomes large, this view will not be available after uploading, but will still run). 
+After the Save is complete, you may or may not see your code editor inline: if your function code becomes large, this view will not be available after uploading, but will still run. It is important to keep a local copy of your skill for this reason.
 
 ### Task 0.6: Test your voice interaction
 
