@@ -1,39 +1,9 @@
 {
   "deploy_settings": {
     "default": {
-      "skill_id": "amzn1.ask.skill.b735710e-0deb-4b32-b97a-c07d16d39ff4",
+      "skill_id": "",
       "was_cloned": false,
       "merge": {
-        "manifest": {
-          "apis": {
-            "custom": {
-              "endpoint": {
-                "uri": "ask-custom-Riddle-Game-Workshop-Presentation-default"
-              }
-            }
-          }
-        }
-      },
-      "resources": {
-        "manifest": {
-          "eTag": "16caa08dbf44fc9618b9e5370bef5315"
-        },
-        "interactionModel": {
-          "en-US": {
-            "eTag": "a88c2ad3ac9c0b9c5eebb62bfdf17285"
-          }
-        },
-        "lambda": [
-          {
-            "arn": "arn:aws:lambda:us-east-1:030560555596:function:ask-custom-Riddle-Game-Workshop-Presentation-default",
-            "functionName": "arn:aws:lambda:us-east-1:030560555596:function:ask-custom-Riddle-Game-Workshop-Presentation-default",
-            "awsRegion": "us-east-1",
-            "alexaUsage": [
-              "custom/default"
-            ],
-            "revisionId": "2dab4c01-e654-42b8-ae9f-69d15ce9b3f6"
-          }
-        ]
       }
     }
   }
